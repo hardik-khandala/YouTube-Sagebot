@@ -1,0 +1,21 @@
+ .container {
+     margin-top: 50px;
+ }
+
+ .input-group {
+     margin-top: 20px;
+ }
+
+ .input-group textarea {
+     margin: 0 10px;
+     padding: 10px;
+     resize: none;
+ }
+
+ #answer {
+     height: 40rem;
+ }
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #fcfcfc;
+}

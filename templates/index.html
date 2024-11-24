@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Q/A App</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">
+            <!-- <label for="yt-link">Enter YouTube Link</label> -->
+            <input type="text" class="form-control" id="yt-link" placeholder="Enter YouTube link" oninput="validateLink()">
+        </div>
+        <form onsubmit="submitQuestion(event)">
+            <div class="form-group input-group">
+                <textarea class="form-control" id="question" placeholder="Ask a question" disabled></textarea>
+                <textarea class="form-control" id="answer" placeholder="Answer will appear here" readonly></textarea>
+            </div>
+            <div style="display: flex; justify-content: center;">
+            <button type="submit" class="btn btn-primary" style="margin: 10px;">Submit</button>
+            <button type="submit" class="btn btn-danger" style="margin: 10px;" onclick="Relode()">Reset</button>
+        </div>
+        </form>
+    </div>
+    <script>
+        async function validateLink() {
+            const ytLink = document.getElementById('yt-link').value;
+            const response = await fetch('/validate_link', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ yt_link: ytLink })
+            });
+            const data = await response.json();
+            document.getElementById('question').disabled = !data.is_valid;
+        }
+        function Relode(){
+            
+        }
+        async function submitQuestion(event) {
+            event.preventDefault();
+            const question = document.getElementById('question').value;
+            const response = await fetch('/get_answer', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ question: question })
+            });
+            const data = await response.json();
+            document.getElementById('answer').value = data.answer;
+        }
+    </script>
+</body>
+</html>
