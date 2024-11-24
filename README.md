@@ -31,5 +31,5 @@ This project is an advanced NLP system designed for dynamic data extraction and 
 To run the Streamlit application, use the following command:
 
 ```bash
-streamlit run app.py
+streamlit run tune.py
 ```
