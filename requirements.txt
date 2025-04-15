@@ -1,1 +1,15 @@
 youtube-transcript-api
+re
+bs4
+transformers
+warnings
+spacy
+requests
+google.generativeai
+io
+numpy
+gtts
+speech_recognition
+textblob
+pytube
+pyttsx3
