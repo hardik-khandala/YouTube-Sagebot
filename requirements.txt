@@ -3,11 +3,10 @@ bs4
 transformers
 spacy
 requests
-google.generativeai
-io
+google-generativeai
 numpy
 gtts
-speech_recognition
+speechrecognition
 textblob
 pytube
 pyttsx3
