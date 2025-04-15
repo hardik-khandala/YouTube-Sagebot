@@ -1,5 +1,4 @@
 youtube-transcript-api
-re
 bs4
 transformers
 warnings
